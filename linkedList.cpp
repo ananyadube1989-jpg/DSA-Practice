@@ -11,9 +11,8 @@ public:
         data = value;
         next = NULL;
     }
-
     
-};   // <-- ADD THIS: close the class here
+};  
 
 
 void display(Node* head) {
@@ -24,7 +23,7 @@ void display(Node* head) {
         }
         cout << "NULL" << endl;
     }
-// Now these are normal free functions, not class members
+
 Node* insertHead(Node* head, int value) {
     Node* newNode = new Node(value);
     newNode->next = head;
@@ -45,6 +44,17 @@ Node* insertTail(Node* head, int value) {
     return head;
 }
 
+Node* reverseLinkList(Node * head){
+    struct Node* prev = NULL, *curr = head, *n = NULL;
+    while(curr != NULL){
+        n = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = n;
+    }
+    return prev;
+}
+
 int main() {
     Node* head = NULL;
 
@@ -54,7 +64,11 @@ int main() {
     head = insertTail(head, 40);
 
     cout << "Original List: ";
-    display(head);   // <-- changed: display is a Node member, call it via head
+    display(head);  
+
+    cout << "Reversed List:";
+    head = reverseLinkList(head);
+
+    display(head);
     return 0;
 }
-// no stray };  at the end anymore
