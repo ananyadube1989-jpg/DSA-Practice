@@ -12,7 +12,11 @@ public:
         next = NULL;
     }
 
-    void display(Node* head) {
+    
+};   // <-- ADD THIS: close the class here
+
+
+void display(Node* head) {
         Node* temp = head;
         while (temp != NULL) {
             cout << temp->data << " -> ";
@@ -20,8 +24,6 @@ public:
         }
         cout << "NULL" << endl;
     }
-};   // <-- ADD THIS: close the class here
-
 // Now these are normal free functions, not class members
 Node* insertHead(Node* head, int value) {
     Node* newNode = new Node(value);
@@ -52,7 +54,7 @@ int main() {
     head = insertTail(head, 40);
 
     cout << "Original List: ";
-    head->display(head);   // <-- changed: display is a Node member, call it via head
+    display(head);   // <-- changed: display is a Node member, call it via head
     return 0;
 }
 // no stray };  at the end anymore
