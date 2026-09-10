@@ -1,1 +1,5 @@
+<<<<<<< HEAD
  *.obj *.pdb *.exe
+=======
+*.obj *.pdb *.exe *.json
+>>>>>>> 10700673f63697307ce10a5d3ea4125c0a9e7a08
